@@ -1,0 +1,72 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 900;
+  margin: 48px auto;
+}
+
+.assignment {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 16px auto;
+}
+
+.game-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.weapon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border: 8px solid #333;
+  border-radius: 50%;
+}
+
+.image img {
+  width: 75%;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 16px auto;
+}
+
+.result-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 48px auto;
+}
