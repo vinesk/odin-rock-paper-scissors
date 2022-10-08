@@ -1,72 +1,105 @@
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.container {
+	font-family: 'Trebuchet MS', sans-serif;
+	background-color: #eee;
+	color: #222;
+	text-align: center;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
-.header-section {
-  text-align: center;
-  margin-bottom: 48px;
-}
-
-.title {
-  font-size: 48px;
+h1 {
+	font-size: 48px;
   font-weight: 900;
-  margin: 48px auto;
+	text-transform: capitalize;
+	margin: 24px auto;
 }
 
-.assignment {
-  font-size: 24px;
+.game-row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 24px auto;
+  gap: 24px;
+}
+
+.game-col {
+	min-width: 200px;
+}
+
+h2 {
+	font-size: 32px;
   font-weight: 700;
-  margin: 16px auto;
+	margin: 12px auto;
 }
 
-.game-section {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 32px;
+.score {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	width: 100%;
+	border: 4px solid #222;
+	border-radius: 10px;
 }
 
-.weapon {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.selection {
+	font-size: 16px;
+	margin: 12px auto;
 }
 
-.image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 200px;
-  height: 200px;
-  border: 8px solid #333;
-  border-radius: 50%;
+#rules {
+	font-size: 24px;
+	margin: 12px auto;
 }
 
-.image img {
-  width: 75%;
-}
-
-.name {
-  font-size: 16px;
+#reset {
+	display: none;
+	border: 4px solid #222;
+	border-radius: 10px;
+	padding: 12px;
+	margin: 24px auto;
+	font-size: 16px;
   font-weight: 700;
-  margin: 16px auto;
+	min-width: 200px;
+	background-color: #ddd;
+	align-items: center;
+	justify-content: center;
+  transition: .3s;
 }
 
-.result-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  font-weight: 700;
-  margin: 48px auto;
+#reset:hover {
+	cursor: pointer;
+	background-color: #fff;
+}
+
+.choices-row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 24px auto;
+  gap: 24px;
+	
+}
+
+.choice {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 120px;
+	width: 120px;
+	border: 4px solid #000;
+	border-radius: 50%;
+	background-color: #ddd;
+}
+
+.choice img {
+	width: 80%;
+  transition: .3s;
+}
+
+.choice:hover {
+	cursor: pointer;
+	background-color: #fff;
 }

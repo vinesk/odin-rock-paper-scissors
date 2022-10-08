@@ -1,89 +1,67 @@
-let choices = ["Rock", "Paper", "Scissors"];
+let userScore = document.querySelector("#userScore");
+let userSelection = document.querySelector("#userSelection");
+let computerScore = document.querySelector("#computerScore");
+let computerSelection = document.querySelector("#computerSelection");
+let instructionsRow = document.querySelectorAll(".instructions-row")[0];
+let rules = document.querySelector("#rules");
+let reset = document.querySelector("#reset");
+let choicesRow = document.querySelectorAll(".choices-row")[0];
+let rock = document.querySelector("#rock");
+let paper = document.querySelector("#paper");
+let scissors = document.querySelector("#scissors");
 
-const caseSensitive = (string) =>
-  string.charAt(0).toLocaleUpperCase() + string.slice(1).toLowerCase();
+let userPoints = 0;
+let computerPoints = 0;
 
-const getPlayerChoice = () => {
-  let playerSelection = prompt("Choose your weapon: Rock, Paper or Scissors?");
-  playerSelection = caseSensitive(playerSelection);
-  while (
-    playerSelection != "Rock" &&
-    playerSelection != "Paper" &&
-    playerSelection != "Scissors"
+const playRound = (userChoice) => {
+  let choices = ["rock", "paper", "scissors"];
+  let computerChoice = choices[Math.floor(Math.random() * choices.length)];
+  userSelection.textContent = `Your selection: ${userChoice}`;
+  computerSelection.textContent = `Computer selection: ${computerChoice}`;
+  if (
+    (userChoice == "rock" && computerChoice == "scissors") ||
+    (userChoice == "paper" && computerChoice == "rock") ||
+    (userChoice == "scissors" && computerChoice == "paper")
   ) {
-    playerSelection = prompt("Wrong! Choose between Rock, Paper and Scissors!");
-    playerSelection = caseSensitive(playerSelection);
-  }
-  return playerSelection;
-};
-
-const getComputerChoice = () => choices[Math.floor(Math.random() * 3)];
-
-const playRound = (playerSelection, computerSelection) => {
-  switch (playerSelection) {
-    case "Rock":
-      switch (computerSelection) {
-        case "Rock":
-          return "It's a tie";
-        case "Paper":
-          return `You lose! ${computerSelection} beats ${playerSelection}`;
-        case "Scissors":
-          return `You win! ${playerSelection} beats ${computerSelection}`;
-        default:
-          return "Error! Computer selection undifined";
-      }
-    case "Paper":
-      switch (computerSelection) {
-        case "Rock":
-          return `You win! ${playerSelection} beats ${computerSelection}`;
-        case "Paper":
-          return "It's a tie";
-        case "Scissors":
-          return `You lose! ${computerSelection} beats ${playerSelection}`;
-        default:
-          return "Error! Computer selection undifined";
-      }
-    case "Scissors":
-      switch (computerSelection) {
-        case "Rock":
-          return `You lose! ${computerSelection} beats ${playerSelection}`;
-        case "Paper":
-          return `You win! ${playerSelection} beats ${computerSelection}`;
-        case "Scissors":
-          return "It's a tie";
-        default:
-          return "Error! Computer selection undifined";
-      }
-    default:
-      return "Error! Player selection undifined";
-  }
-};
-
-const game = () => {
-  let playerScore = 0;
-  let computerScore = 0;
-  let rounds = parseInt(prompt("How many rounds do you want to play (between 1 and 5)?"));
-  while (isNaN(rounds) || rounds < 0 || rounds > 5) {
-    rounds = parseInt(prompt("Wrong! Choose a number between 1 and 5 to play"));
-  }
-  for (let i = 0; i < rounds; i++) {
-    let playerSelection = getPlayerChoice();
-    let computerSelection = getComputerChoice();
-    let result = playRound(playerSelection, computerSelection);
-    alert(`Round ${i + 1}: ${result}`);
-    if (result.startsWith("You win")) {
-      playerScore++;
-    } else if (result.startsWith("You lose")) {
-      computerScore++;
-    }
-  }
-  if (playerScore > computerScore) {
-    return `Congratulations! You've won ${playerScore} against ${computerScore} :)`;
-  } else if (playerScore < computerScore) {
-    return `Too bad! You lost ${playerScore} against ${computerScore} :(`;
+    rules.textContent = "You win !";
+    userPoints += 1;
+    userScore.textContent = userPoints;
+  } else if (
+    (userChoice == "rock" && computerChoice == "paper") ||
+    (userChoice == "paper" && computerChoice == "scissors") ||
+    (userChoice == "scissors" && computerChoice == "rock")
+  ) {
+    rules.textContent = "You lose !";
+    computerPoints += 1;
+    computerScore.textContent = computerPoints;
   } else {
-    return "Well done! It's a tie";
+    rules.textContent = "It's a tie !";
   }
 };
 
-alert(game());
+const playGame = (userChoice) => {
+  playRound(userChoice);
+  if (userPoints == 5 || computerPoints == 5) {
+    rules.textContent = "Game over: ";
+    rules.textContent += userPoints == 5 ? "You win !!!" : "You lose...";
+    reset.style.display = "flex";
+    choicesRow.style.display = "none";
+  }
+};
+
+const replayGame = () => {
+  userPoints = 0;
+  computerPoints = 0;
+  userScore.textContent = userPoints;
+  computerScore.textContent = computerPoints;
+  userSelection.textContent = "Your choice: ";
+  computerSelection.textContent = "Computer choice: ";
+  rules.textContent = "Select rock, paper or scissors.";
+  reset.style.display = "none";
+  choicesRow.style.display = "flex";
+};
+
+rock.onclick = () => playGame("rock");
+paper.onclick = () => playGame("paper");
+scissors.onclick = () => playGame("scissors");
+reset.onclick = () => replayGame();
