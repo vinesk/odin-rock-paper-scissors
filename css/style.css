@@ -1,5 +1,5 @@
 body {
-	font-family: 'Trebuchet MS', sans-serif;
+  font-family: 'Roboto', sans-serif;
 	background-color: #eee;
 	color: #222;
 	text-align: center;
@@ -14,6 +14,7 @@ h1 {
   font-weight: 900;
 	text-transform: capitalize;
 	margin: 24px auto;
+  font-family: 'Fredoka One', cursive;
 }
 
 .game-row {
@@ -25,7 +26,7 @@ h1 {
 }
 
 .game-col {
-	min-width: 200px;
+	min-width: 225px;
 }
 
 h2 {
