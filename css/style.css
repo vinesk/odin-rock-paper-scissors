@@ -21,18 +21,18 @@ h1 {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin: 24px auto;
+	margin-bottom: 24px;
   gap: 24px;
 }
 
 .game-col {
-	min-width: 225px;
+	width: 225px;
 }
 
 h2 {
 	font-size: 32px;
   font-weight: 700;
-	margin: 12px auto;
+	margin-bottom: 12px;
 }
 
 .score {
@@ -52,7 +52,6 @@ h2 {
 
 #rules {
 	font-size: 24px;
-	margin: 12px auto;
 }
 
 #reset {
