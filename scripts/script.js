@@ -16,12 +16,12 @@ const playRound = (playerSelection, computerSelection) => {
   let round = `${playerSelection} vs ${computerSelection}`;
   if (round === "rock vs scissors" || round === "paper vs rock" || round === "scissors vs paper") {
     playerScore++;
-    results.textContent = `You win! ${camelCase(playerSelection)} beats ${computerSelection} (score: you = ${playerScore} & computer ${computerScore})`;
+    results.textContent = `You win! ${camelCase(playerSelection)} beats ${computerSelection} (score: you = ${playerScore} & computer = ${computerScore})`;
   } else if (round === "rock vs paper" || round === "paper vs scissors" || round === "scissors vs rock") {
     computerScore++;
-    results.textContent = `You lose! ${camelCase(computerSelection)} beats ${playerSelection} (score: you = ${playerScore} & computer ${computerScore})`;
+    results.textContent = `You lose! ${camelCase(computerSelection)} beats ${playerSelection} (score: you = ${playerScore} & computer = ${computerScore})`;
   } else {
-    results.textContent = `It's a tie! (score: you = ${playerScore} & computer ${computerScore})`;
+    results.textContent = `It's a tie! (score: you = ${playerScore} & computer = ${computerScore})`;
   }
 }
 
@@ -40,10 +40,8 @@ const game = () => {
         results.setAttribute("id", "results");
         if (playerScore > computerScore) {
           results.textContent = "RESULTS: YOU'VE WON :)"
-        } else if (playerScore < computerScore) {
-          results.textContent = "RESULTS: YOU'VE WON :)";
         } else {
-          results.textContent = "IT'S A TIE";
+          results.textContent = "RESULTS: YOU'VE LOST :(";
         }
         container.appendChild(results);
       }
