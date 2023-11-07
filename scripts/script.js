@@ -31,16 +31,18 @@ const playRound = (playerSelection, computerSelection) => {
 }
 
 const game = () => {
-  console.log("Instructions: Play \"rock, paper, scissors\", first to 5 wins");
-  while (playerScore !== 5 && computerScore !== 5) {
+  console.log("Instructions: Play \"rock, paper, scissors\" in 5 rounds");
+  for (let i = 0 ; i < 5 ; i++) {
     const playerSelection = getPlayerChoice();
     const computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
   }
   if (playerScore > computerScore) {
     console.log("RESULT: YOU'VE WON :)");
-  } else {
+  } else if (playerScore < computerScore) {
     console.log("RESULT: YOU'VE LOST :(");
+  } else {
+    console.log("RESULT: IT'S A TIE");
   }
 }
 
