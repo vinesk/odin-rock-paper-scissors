@@ -2,7 +2,7 @@ const choices = ["rock", "paper", "scissors"];
 let playerScore = 0;
 let computerScore = 0;
 
-const capitalizedFirstLetter = (word) => {
+const capitalizeFirstLetter = (word) => {
   return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 }
 
@@ -21,10 +21,10 @@ const playRound = (playerSelection, computerSelection) => {
   let round = `${playerSelection} vs ${computerSelection}`;
   if (round === "rock vs scissors" || round === "paper vs rock" || round === "scissors vs paper") {
     playerScore++;
-    return `You win! ${capitalizedFirstLetter(playerSelection)} beats ${computerSelection} (score: you = ${playerScore} & computer ${computerScore})`;
+    return `You win! ${capitalizeFirstLetter(playerSelection)} beats ${computerSelection} (score: you = ${playerScore} & computer ${computerScore})`;
   } else if (round === "rock vs paper" || round === "paper vs scissors" || round === "scissors vs rock") {
     computerScore++;
-    return `You lose! ${capitalizedFirstLetter(computerSelection)} beats ${playerSelection} (score: you = ${playerScore} & computer ${computerScore})`;
+    return `You lose! ${capitalizeFirstLetter(computerSelection)} beats ${playerSelection} (score: you = ${playerScore} & computer ${computerScore})`;
   } else {
     return `It's a tie! (score: you = ${playerScore} & computer ${computerScore})`;
   }
